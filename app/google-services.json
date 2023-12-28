@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "520057219996",
+    "firebase_url": "https://mad-prac-d6906-default-rtdb.firebaseio.com",
+    "project_id": "mad-prac-d6906",
+    "storage_bucket": "mad-prac-d6906.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520057219996:android:52351c31c633576eb27659",
+        "android_client_info": {
+          "package_name": "com.example.ecocity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlK6e4FJgy9v_t-K2xoJsRIZxY7GiylXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520057219996:android:8146901616fbca14b27659",
+        "android_client_info": {
+          "package_name": "com.example.madassignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlK6e4FJgy9v_t-K2xoJsRIZxY7GiylXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520057219996:android:f56e31b287b8d979b27659",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlK6e4FJgy9v_t-K2xoJsRIZxY7GiylXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

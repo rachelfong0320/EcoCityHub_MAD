@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ratingBar5" type="id" />
+    <item name="ratingBar" type="id" />
+    <item name="ratingBar2" type="id" />
+    <item name="ratingBar3" type="id" />
+    <item name="ratingBar4" type="id" />
+    <item name="buttonSubmit" type="id" />
+    <item name="textViewProfile" type="id" />
+    <item name="textViewVolunteer" type="id" />
+    <item name="textViewResource" type="id" />
+    <item name="textViewPoint" type="id" />
+    <item name="textViewOverall" type="id" />
+</resources>
