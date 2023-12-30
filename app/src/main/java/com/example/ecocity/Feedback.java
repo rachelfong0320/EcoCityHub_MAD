@@ -19,7 +19,8 @@ public class Feedback extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
     String category;
-    ImageView selectedImageView;
+    ImageView selectedImageView, buttonBack;
+    String FeedbackKey;
 
 
     @Override
@@ -34,6 +35,15 @@ public class Feedback extends AppCompatActivity {
         ImageView exchange = findViewById(R.id.imageView20);
         ImageView reward = findViewById(R.id.imageView26);
         selectedImageView = null;
+        buttonBack= findViewById(R.id.imageView28);
+
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         //check for category
@@ -75,6 +85,7 @@ public class Feedback extends AppCompatActivity {
             public void onClick(View v) {
                 database = FirebaseDatabase.getInstance();
                 reference = database.getReference("Feedback");
+                FeedbackKey=reference.push().getKey();
 
                 String feedback = feedbackForm.getText().toString().trim();
 
@@ -82,7 +93,7 @@ public class Feedback extends AppCompatActivity {
                     String message = "We appreciate your feedback, we'll try hard to it!";
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     FeedbackHelperClass helperClass = new FeedbackHelperClass(feedback);
-                    reference.child(category).setValue(helperClass);
+                    reference.child(category).child(FeedbackKey).setValue(helperClass);
                     Intent intent = new Intent(Feedback.this, UserProfileMain.class);
                     startActivity(intent);
                 }else{

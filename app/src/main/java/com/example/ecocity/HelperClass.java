@@ -3,6 +3,7 @@ package com.example.ecocity;
 public class HelperClass {
 
     String username, gender, date, contNum, email,address , pass1;
+    int point;
     boolean privacy;
 
     public String getUsername() {
@@ -70,9 +71,10 @@ public class HelperClass {
         this.address = address;
         this.pass1 = pass1;
         this.privacy = false;
+        this.point=20;
     }
 
-    public HelperClass(String username, String gender, String date, String contNum, String email, String address, String pass1, boolean privacy) {
+    public HelperClass(String username, String gender, String date, String contNum, String email, String address, String pass1, boolean privacy, int point) {
         this.username = username;
         this.gender = gender;
         this.date = date;
@@ -81,6 +83,7 @@ public class HelperClass {
         this.address = address;
         this.pass1 = pass1;
         this.privacy = privacy;
+        this.point=point;
     }
 
     public boolean isPrivacy() {
@@ -89,5 +92,13 @@ public class HelperClass {
 
     public void setPrivacy(boolean privacy) {
         this.privacy = privacy;
+    }
+
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
     }
 }

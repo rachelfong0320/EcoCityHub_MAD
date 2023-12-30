@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class Register extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
     ProgressBar progressBar;
+    ImageView buttonBack;
 
 
     @Override
@@ -49,6 +51,7 @@ public class Register extends AppCompatActivity {
         editTextPass= findViewById(R.id.editTextPass);
         editTextPass2 = findViewById(R.id.editTextPass2);
         button4 = findViewById(R.id.button4);
+        buttonBack = findViewById(R.id.imageView28);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
@@ -67,6 +70,13 @@ public class Register extends AppCompatActivity {
                    }
                }
                return false;
+           }
+       });
+
+       buttonBack.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               finish();
            }
        });
 
@@ -115,7 +125,7 @@ public class Register extends AppCompatActivity {
 
 
                 // Register the user into firebase realtime Database
-                HelperClass helperClass = new HelperClass(username,gender,date,contNum, email,address,pass1, false);
+                HelperClass helperClass = new HelperClass(username,gender,date,contNum, email,address,pass1, false,20);
                 reference.child(username).setValue(helperClass);
 
 

@@ -4,8 +4,9 @@ public class ReportHelperClass {
     String problem;
     String des;
 
-    public ReportHelperClass(String des) {
+    public ReportHelperClass(String des, String problem) {
         this.des = des;
+        this.problem=problem;
     }
 
 

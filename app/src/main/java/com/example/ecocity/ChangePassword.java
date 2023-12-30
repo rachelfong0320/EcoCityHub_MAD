@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class ChangePassword extends AppCompatActivity {
     DatabaseReference databaseReference;
     String currentPassword, newPassword1, newPassword2;
     Button button4;
+    ImageView buttonBack;
 
 
     @Override
@@ -38,6 +40,7 @@ public class ChangePassword extends AppCompatActivity {
         editText2Password= findViewById(R.id.editText2Password);
         editText3Password= findViewById(R.id.editText3Password);
         button4= findViewById(R.id.button4);
+        buttonBack=findViewById(R.id.imageView28);
 
         databaseReference= FirebaseDatabase.getInstance().getReference("Users").child(username);
 
@@ -60,6 +63,13 @@ public class ChangePassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAndUpdatePassword();
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

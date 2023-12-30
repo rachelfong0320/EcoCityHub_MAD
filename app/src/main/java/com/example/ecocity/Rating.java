@@ -1,7 +1,5 @@
 package com.example.ecocity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -9,9 +7,12 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,6 +21,7 @@ public class Rating extends AppCompatActivity {
     DatabaseReference reference;
     FirebaseDatabase database;
     Float rateProfileSystem, rateVolunteer, rateResource, ratePoint, rateOverall;
+    ImageView buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class Rating extends AppCompatActivity {
         RatingBar RateBarResource = findViewById(R.id.ratingBar3);
         RatingBar RateBarPoint = findViewById(R.id.ratingBar4);
         RatingBar RateBarOverall = findViewById(R.id.ratingBar5);
+        buttonBack= findViewById(R.id.imageView28);
+
 
         LayerDrawable stars = (LayerDrawable) RateBarProfile.getProgressDrawable();
         stars.getDrawable(2).setColorFilter(Color.parseColor("#966fd6"), PorterDuff.Mode.SRC_ATOP);
@@ -44,14 +48,22 @@ public class Rating extends AppCompatActivity {
         TextView VolunteerRateCount = findViewById(R.id.textViewVolunteer);
         TextView PointRateCount = findViewById(R.id.textViewPoint);
 
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 database=FirebaseDatabase.getInstance();
                 reference=database.getReference("Rating");
+                String RatingKey = reference.push().getKey();
 
                 RatingHelperClass helperClass = new RatingHelperClass(rateProfileSystem, rateVolunteer, rateResource, ratePoint, rateOverall);
-                reference.setValue(helperClass);
+                reference.child(RatingKey).setValue(helperClass);
 
                 String message = "We appreciated you rating! It means a lot to us.";
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();

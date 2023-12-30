@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class EditProfile extends AppCompatActivity {
     Spinner editGender;
     String username, gender, dateOfBirth, contNum, email, address, password;
     DatabaseReference reference;
+    ImageView buttonBack;
 
     ConstraintLayout constraintLayout3;
 
@@ -43,10 +45,18 @@ public class EditProfile extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editAddress = findViewById(R.id.editText);
         button4=findViewById(R.id.button4);
+        buttonBack=findViewById(R.id.imageView28);
 
 
 
         showData();
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         button4.setOnClickListener(new View.OnClickListener() {

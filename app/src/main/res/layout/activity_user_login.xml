@@ -105,13 +105,13 @@
 
         <EditText
             android:id="@+id/editTextUsernameOrEmail"
-            android:layout_width="wrap_content"
+            android:layout_width="298dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/user_button"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/rounded_edited_text"
-            android:hint="Username or Email Address"
+            android:hint="Username"
             android:paddingVertical="12dp"
             android:paddingLeft="30dp"
             android:paddingRight="50dp" />

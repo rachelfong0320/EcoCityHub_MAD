@@ -92,7 +92,7 @@ public class User_login extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), UserProfileMain.class);
                             intent.putExtra("username",usernameOrEmail);
                             startActivity(intent);
-                        } else if(!task.isSuccessful()){ // check bu username
+                        } else if(!task.isSuccessful()){ // check by username
                             checkUser();
                             Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
                         }else{

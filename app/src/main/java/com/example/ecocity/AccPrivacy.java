@@ -3,7 +3,9 @@ package com.example.ecocity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ public class AccPrivacy extends AppCompatActivity {
     private String username;
     private DatabaseReference userReference;
     private SharedPreferences sharedPreferences;
+    ImageView buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class AccPrivacy extends AppCompatActivity {
 
         privacySwitch = findViewById(R.id.switch1);
         sharedPreferences=getSharedPreferences("com.example.ecocity", MODE_PRIVATE);
+        buttonBack=findViewById(R.id.imageView28);
 
 
         Intent intent = getIntent();
@@ -47,10 +51,17 @@ public class AccPrivacy extends AppCompatActivity {
                 // Update the privacy setting in the Database
                 userReference.child("privacy").setValue(isChecked);
 
-                Toast.makeText(AccPrivacy.this, "Privacy setting updated! Restart is require!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AccPrivacy.this, "Privacy setting updated!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AccPrivacy.this, User_login.class);
                 startActivity(intent);
 
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

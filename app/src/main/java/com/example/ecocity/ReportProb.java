@@ -1,13 +1,14 @@
 package com.example.ecocity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,6 +19,8 @@ public class ReportProb extends AppCompatActivity {
     Button button4;
     FirebaseDatabase database;
     DatabaseReference reference;
+    ImageView buttonBack;
+    String reportKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +30,22 @@ public class ReportProb extends AppCompatActivity {
         editTextTextMultiLine1=findViewById(R.id.editTextTextMultiLine1);
         editTextTextMultiLine=findViewById(R.id.editTextTextMultiLine);
         button4=findViewById(R.id.button4);
+        buttonBack= findViewById(R.id.imageView28);
+
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 database = FirebaseDatabase.getInstance();
                 reference = database.getReference("Report");
+                reportKey= reference.push().getKey();
 
                 String problem = editTextTextMultiLine.getText().toString().trim();
                 String des = editTextTextMultiLine1.getText().toString().trim();
@@ -40,8 +53,8 @@ public class ReportProb extends AppCompatActivity {
                 if(! editTextTextMultiLine.getText().toString().isEmpty()){
                     String message = "We receive your report, we'll try hard to it!";
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                    ReportHelperClass helperClass = new ReportHelperClass(des);
-                    reference.child(problem).setValue(helperClass);
+                    ReportHelperClass helperClass = new ReportHelperClass(des, problem);
+                    reference.child(reportKey).setValue(helperClass);
                     Intent intent = new Intent(ReportProb.this, UserProfileMain.class);
                     startActivity(intent);
                 }else{

@@ -18,6 +18,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,18 +31,21 @@ import com.google.firebase.storage.UploadTask;
 
 public class UserProfileMain extends AppCompatActivity {
     TextView TitleUsername, UserPoint;
-    ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PonitLayout, PrivacyLayout,FeedbackLayout;
-    ImageView imageView,imageViewButton;
+    ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PonitLayout, PrivacyLayout,FeedbackLayout, RatingLayout;
+    ImageView imageView,imageViewButton, buttonBack;
     Button buttonLogOut;
     FirebaseStorage mFirebaseStorage;
     StorageReference mStorageReference;
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    FirebaseUser currentUser;
+    String uid;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         TitleUsername = findViewById(R.id.UserName);
         UserPoint= findViewById(R.id.textView3);
@@ -50,11 +54,20 @@ public class UserProfileMain extends AppCompatActivity {
         //profile picture
         imageView = findViewById(R.id.imageView);
         imageViewButton = findViewById(R.id.imageView4);
+        buttonBack=findViewById(R.id.imageView28);
 
 
         mFirebaseStorage = FirebaseStorage.getInstance();
         mStorageReference = mFirebaseStorage.getReference();
 
+
+        RatingLayout=findViewById(R.id.RatingLayout);
+        RatingLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfileMain.this, Rating.class));
+            }
+        });
 
         // setting profile picture
         imageViewButton.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +79,13 @@ public class UserProfileMain extends AppCompatActivity {
                         .maxResultSize(1080,1080)
                         .start();
 
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(UserProfileMain.this, UserProfileMain.class));
             }
         });
 
@@ -119,9 +139,9 @@ public class UserProfileMain extends AppCompatActivity {
         PrivacyLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = getIntent().getStringExtra("username");
+                String uid= getIntent().getStringExtra("uid");
                 Intent intent = new Intent(UserProfileMain.this, AccPrivacy.class);
-                intent.putExtra("username", username);
+                intent.putExtra("uid", uid);
                 startActivity(intent);
             }
         });
@@ -131,6 +151,14 @@ public class UserProfileMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserProfileMain.this,Feedback.class ));
+            }
+        });
+
+        RatingLayout=findViewById(R.id.RatingLayout);
+        RatingLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfileMain.this, Rating.class));
             }
         });
     }
@@ -151,8 +179,8 @@ public class UserProfileMain extends AppCompatActivity {
 
     private void uploadImageToFirebase(Uri imageUri) {
         if (imageUri != null) {
-            final String username = getIntent().getStringExtra("username");
-            StorageReference fileReference = mStorageReference.child("USER_profile_images").child(username + ".jpg");
+            final String uid = getIntent().getStringExtra("uid");
+            StorageReference fileReference = mStorageReference.child("USER_profile_images").child(uid + ".jpg");
 
             fileReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -161,7 +189,7 @@ public class UserProfileMain extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(username);
+                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
                                     databaseReference.child("profileImageUrl").setValue(uri.toString());
                                     Toast.makeText(UserProfileMain.this, "Upload successful", Toast.LENGTH_LONG).show();
                                     Glide.with(UserProfileMain.this).load(uri).into(imageView);

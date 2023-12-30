@@ -15,11 +15,11 @@
         android:theme="@style/Theme.Ecocity"
         tools:targetApi="31">
         <activity
+            android:name=".Update_ForgetPassword"
+            android:exported="false" />
+        <activity
             android:name=".forgetPassword"
             android:exported="true" />
-        <activity
-            android:name=".image"
-            android:exported="false" />
         <activity
             android:name=".AboutUs"
             android:exported="true" />
