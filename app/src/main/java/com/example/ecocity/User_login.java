@@ -41,7 +41,7 @@ public class User_login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-
+        System.out.println("a");
         usernameOrEmailEditText = findViewById(R.id.editTextUsernameOrEmail);
         passwordEditText = findViewById(R.id.editTextPassword);
         togglePasswordButton = findViewById(R.id.togglePasswordButton);
