@@ -212,7 +212,7 @@ public class UserProfileMain extends AppCompatActivity {
         String nameUser = intent.getStringExtra("username");
         TitleUsername.setText(nameUser);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(nameUser);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child("username");
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -3,9 +3,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_purple">#d9d9ff</color>
-    <color name="purple">#3C7C7DCC</color>
+    <color name="purple">#7C7DCC</color>
     <color name="login_background">#D8ECE2</color>
     <color name="btn_color">#7C7DCC</color>
     <color name="links_color">#0000EE</color>
-
+    <color name="dark_green">#76b493</color>
+    <color name="light_green">#d8ece2</color>
+    <color name="grey">#B5C1BB</color>
+    <color name="error">#FB0303</color>
 </resources>

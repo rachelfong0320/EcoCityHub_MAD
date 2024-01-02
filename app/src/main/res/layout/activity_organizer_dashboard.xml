@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrganizerDashboard">
+
+    <RelativeLayout
+        android:id="@+id/RLDashboardHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/dark_green">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BTDashboardBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/transparent"
+            app:icon="@drawable/baseline_arrow_back_ios_24"
+            app:iconSize="30dp" />
+
+        <TextView
+            android:id="@+id/TVDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Dashboard"
+            android:textColor="@color/white"
+            android:textSize="28dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/RLDashboardHeader"
+        android:background="@color/light_green">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Volunteer"
+            android:textSize="35dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/TVVolunteer1"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activities"
+            android:textSize="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/TVVolunteer1"
+            android:id="@+id/TVVolunteer2"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/RLDashboard"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/RLDashboard"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/activity_recycler_view">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            app:shapeAppearanceOverlay="@style/round_fab"
+            android:id="@+id/FOBAddActivities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="25dp"
+            android:src="@drawable/ic_add"
+            app:fabCustomSize="80dp"
+            app:backgroundTint="@color/purple"
+            app:tint="@color/white"
+            android:elevation="8dp"
+            app:maxImageSize="40dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrganizerProfile">
+
+    <RelativeLayout
+        android:id="@+id/orgProfileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/dark_green">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BTProfileBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/transparent"
+            app:icon="@drawable/baseline_arrow_back_ios_24"
+            app:iconSize="30dp" />
+
+        <TextView
+            android:id="@+id/TVProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Profile"
+            android:textColor="@color/white"
+            android:textSize="28dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLProfilePic"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_below="@+id/orgProfileHeader"
+        android:background="@color/light_green">
+
+        <TextView
+            android:id="@+id/TVOrganizer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Organizer"
+            android:textColor="@color/purple"
+            android:textSize="25dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVOrganizer"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/RLEditProfile">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/IVProfile"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                app:shapeAppearanceOverlay="@style/imageView_circle"
+                android:src="@drawable/ic_launcher_background"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="90dp"
+                android:src="@drawable/ic_editprofile"
+                app:tint="@color/black"
+                android:id="@+id/IVEditProfile"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TVUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RLEditProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Username"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TVBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVUsername"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Hey there! I am using Ecocity Hub App!"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/RLProfilePic">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MBEditProfile"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="        Edit Profile"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_edit"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTint="@color/purple" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrowfront"
+            android:id="@+id/BTEditOrgProfile"/>
+
+        <TextView
+            android:id="@+id/TVGeneralSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MBEditProfile"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:text="General Settings"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MBAboutUs"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVGeneralSettings"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="        About Us"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_info"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTint="@color/purple" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TVGeneralSettings"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrowfront" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MBTerms"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MBAboutUs"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="        Terms and Conditions"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_terms"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTint="@color/purple" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/MBAboutUs"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrowfront" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MBPrivacy"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MBTerms"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="        Account Privacy"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_privacy"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTint="@color/purple" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/MBTerms"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrowfront" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MBFeedback"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MBPrivacy"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="        Feedback"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_feedback"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTint="@color/purple" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/MBPrivacy"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="35dp"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrowfront" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BTLogOut"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MBFeedback"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/round_button"
+            android:text="Log Out"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
