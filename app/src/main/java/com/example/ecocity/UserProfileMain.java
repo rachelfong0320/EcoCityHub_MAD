@@ -3,6 +3,7 @@ package com.example.ecocity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,7 +32,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class UserProfileMain extends AppCompatActivity {
     TextView TitleUsername, UserPoint;
-    ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PonitLayout, PrivacyLayout,FeedbackLayout, RatingLayout;
+    ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PointLayout, PrivacyLayout,FeedbackLayout, RatingLayout;
     ImageView imageView,imageViewButton, buttonBack;
     Button buttonLogOut;
     FirebaseStorage mFirebaseStorage;
@@ -85,7 +86,7 @@ public class UserProfileMain extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(UserProfileMain.this, UserProfileMain.class));
+                startActivity(new Intent(UserProfileMain.this, UserHomePage.class));
             }
         });
 
@@ -103,14 +104,12 @@ public class UserProfileMain extends AppCompatActivity {
         myConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserProfileMain.this, EditProfile.class);
-                startActivity(intent);
                 passUserData();
             }
         });
 
-        PonitLayout = findViewById(R.id.PonitLayout);
-        PonitLayout.setOnClickListener(new View.OnClickListener() {
+        PointLayout = findViewById(R.id.PonitLayout);
+        PointLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // For accumulated point
@@ -139,9 +138,9 @@ public class UserProfileMain extends AppCompatActivity {
         PrivacyLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String uid= getIntent().getStringExtra("uid");
+                String username = getIntent().getStringExtra("username");
                 Intent intent = new Intent(UserProfileMain.this, AccPrivacy.class);
-                intent.putExtra("uid", uid);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
         });
@@ -212,7 +211,7 @@ public class UserProfileMain extends AppCompatActivity {
         String nameUser = intent.getStringExtra("username");
         TitleUsername.setText(nameUser);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child("username");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(nameUser);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

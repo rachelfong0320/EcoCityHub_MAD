@@ -52,7 +52,7 @@ public class AccPrivacy extends AppCompatActivity {
                 userReference.child("privacy").setValue(isChecked);
 
                 Toast.makeText(AccPrivacy.this, "Privacy setting updated!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(AccPrivacy.this, User_login.class);
+                Intent intent = new Intent(AccPrivacy.this, UserProfileMain.class);
                 startActivity(intent);
 
             }

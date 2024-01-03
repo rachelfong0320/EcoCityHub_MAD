@@ -2,7 +2,9 @@ package com.example.ecocity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -28,13 +30,15 @@ public class EditProfile extends AppCompatActivity {
     String username, gender, dateOfBirth, contNum, email, address, password;
     DatabaseReference reference;
     ImageView buttonBack;
-
+    SharedPreferences sharedPreferences;
     ConstraintLayout constraintLayout3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
 
         reference= FirebaseDatabase.getInstance().getReference("Users");
 
@@ -47,7 +51,15 @@ public class EditProfile extends AppCompatActivity {
         button4=findViewById(R.id.button4);
         buttonBack=findViewById(R.id.imageView28);
 
-
+        sharedPreferences = getSharedPreferences("com.example.ecocity", MODE_PRIVATE);
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        String gender = intent.getStringExtra("gender");
+        String dateOfBirth = intent.getStringExtra("date");
+        String contNum = intent.getStringExtra("contNum");
+        String email = intent.getStringExtra("email");
+        String address = intent.getStringExtra("address");
+        String password = intent.getStringExtra("password");
 
         showData();
 
@@ -202,21 +214,37 @@ public class EditProfile extends AppCompatActivity {
         address = intent.getStringExtra("address");
         password = intent.getStringExtra("password");
 
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("savedUsername", username);
+        editor.putString("savedGender", gender);
+        editor.putString("savedDateOfBirth", dateOfBirth);
+        editor.putString("savedContNum", contNum);
+        editor.putString("savedEmail", email);
+        editor.putString("savedAddress", address);
+        editor.apply();
 
-        editUsername.setText(username);
+        String savedUsername = sharedPreferences.getString("savedUsername", "");
+        String savedGender = sharedPreferences.getString("savedGender", "");
+        String savedDateOfBirth = sharedPreferences.getString("savedDateOfBirth", "");
+        String savedContNum = sharedPreferences.getString("savedContNum", "");
+        String savedEmail = sharedPreferences.getString("savedEmail", "");
+        String savedAddress = sharedPreferences.getString("savedAddress", "");
+
+
+        editUsername.setText(savedUsername);
         // Set the selected item in the gender Spinner
         ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender_options, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         editGender.setAdapter(genderAdapter);
 
-        if (gender != null) {
-            int genderPosition = genderAdapter.getPosition(gender);
+        if (!savedGender.isEmpty()) {
+            int genderPosition = genderAdapter.getPosition(savedGender);
             editGender.setSelection(genderPosition);
         }
-        editTextDate.setText(dateOfBirth);
-        editContNum.setText(contNum);
-        editTextEmail.setText(email);
-        editAddress.setText(address);
+        editTextDate.setText(savedDateOfBirth);
+        editContNum.setText(savedContNum);
+        editTextEmail.setText(savedEmail);
+        editAddress.setText(savedAddress);
 
     }
 

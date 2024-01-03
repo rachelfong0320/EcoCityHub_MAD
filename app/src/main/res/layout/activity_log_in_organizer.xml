@@ -71,7 +71,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="30dp"
             android:width="150dp"
-            android:background="@drawable/unclicked_button_border"
+            android:background="@drawable/rounded_edited_text"
             android:text="User"
             android:textColor="@color/purple"
             android:textSize="20dp"

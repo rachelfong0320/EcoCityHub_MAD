@@ -99,7 +99,7 @@ public class User_login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) { // check by Authentication
                             Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), UserProfileMain.class);
+                            Intent intent = new Intent(getApplicationContext(), UserHomePage.class);
                             intent.putExtra("username",usernameOrEmail);
                             startActivity(intent);
                         } else if(!task.isSuccessful()){ // check by username
@@ -122,9 +122,8 @@ public class User_login extends AppCompatActivity {
         user_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start the NewPageActivity when the button is clicked
-                //Intent intent = new Intent(User_login.this, NewPageActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(User_login.this, User_login.class);
+                startActivity(intent);
             }
         });
     }
@@ -178,7 +177,7 @@ public class User_login extends AppCompatActivity {
 
                                 // User authenticated successfully, proceed to the next activity
                                 Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(User_login.this, UserProfileMain.class);
+                                Intent intent = new Intent(User_login.this, UserHomePage.class);
                                 startActivity(intent);
                             } else {
                                 // Authentication failed, display an error message
@@ -208,7 +207,7 @@ public class User_login extends AppCompatActivity {
                             String passFromBB = snapshot.child(username).child("pass1").getValue(String.class);
                             String dateFromDB = snapshot.child(username).child("date").getValue(String.class);
 
-                            Intent intent = new Intent(User_login.this, UserProfileMain.class);
+                            Intent intent = new Intent(User_login.this, UserHomePage.class);
                             intent.putExtra("username", usernameFromBB);
                             intent.putExtra("gender", genderFromBB);
                             intent.putExtra("contNum", contNumFromBB);

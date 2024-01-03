@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LogInOrganizer extends AppCompatActivity {
 
     TextInputEditText ETUsernameEmail, ETPassword;
-    AppCompatButton logInButton;
+    AppCompatButton logInButton,user_button;
     DatabaseReference mDatabase;
     TextView createAccount, forgot_password;
 
@@ -37,6 +37,7 @@ public class LogInOrganizer extends AppCompatActivity {
         createAccount = findViewById(R.id.createAccount);
         forgot_password = findViewById(R.id.forgot_password);
         mDatabase = FirebaseDatabase.getInstance().getReference("Organizer");
+        user_button=findViewById(R.id.user_button);
 
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +56,13 @@ public class LogInOrganizer extends AppCompatActivity {
                 }
 
                 logInOrganizer(usernameEmail,password);
+            }
+        });
+
+        user_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogInOrganizer.this,User_login.class));
             }
         });
 

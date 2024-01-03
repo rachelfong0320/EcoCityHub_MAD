@@ -77,14 +77,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/log_in"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:width="150dp"
-            android:background="@drawable/rounded_edited_text"
+            android:background="@drawable/clicked_button_border"
             android:text="User"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/organizer"
@@ -158,7 +157,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="30dp"
             android:width="300dp"
-            android:background="@drawable/rounded_edited_text"
+            android:background="@drawable/clicked_button_border"
             android:text="Log in"
             android:textColor="@color/white"
             android:textSize="20dp"
