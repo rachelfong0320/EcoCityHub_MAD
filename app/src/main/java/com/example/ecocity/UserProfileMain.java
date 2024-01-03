@@ -209,33 +209,35 @@ public class UserProfileMain extends AppCompatActivity {
     public void showUserData() {
         Intent intent = getIntent();
         String nameUser = intent.getStringExtra("username");
-        TitleUsername.setText(nameUser);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(nameUser);
+        if (nameUser != null) {
+            TitleUsername.setText(nameUser);
 
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    // Retrieve the profile image URL and privacy setting
-                    String profileImageUrl = snapshot.child("profileImageUrl").getValue(String.class);
-                    boolean isPrivate = snapshot.child("privacy").getValue(Boolean.class);
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(nameUser);
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        // Retrieve the profile image URL and privacy setting
+                        String profileImageUrl = snapshot.child("profileImageUrl").getValue(String.class);
+                        boolean isPrivate = snapshot.child("privacy").getValue(Boolean.class);
 
-                    // Load the profile image using Glide if the account is public
-                    if (!isPrivate && profileImageUrl != null && !profileImageUrl.isEmpty()) {
-                        Glide.with(UserProfileMain.this).load(Uri.parse(profileImageUrl)).into(imageView);
-                    } else {
-                        // Account is private, set a default drawable or image
-                        imageView.setImageResource(R.drawable.user_icon);
+                        // Load the profile image using Glide if the account is public
+                        if (!isPrivate && profileImageUrl != null && !profileImageUrl.isEmpty()) {
+                            Glide.with(UserProfileMain.this).load(Uri.parse(profileImageUrl)).into(imageView);
+                        } else {
+                            // Account is private, set a default drawable or image
+                            imageView.setImageResource(R.drawable.user_icon);
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Handle the error if needed
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle the error if needed
+                }
+            });
+        }
     }
 
 

@@ -7,8 +7,10 @@
     <color name="login_background">#D8ECE2</color>
     <color name="btn_color">#7C7DCC</color>
     <color name="links_color">#0000EE</color>
+    <color name="green">#7FC19E</color>
     <color name="dark_green">#76b493</color>
     <color name="light_green">#d8ece2</color>
     <color name="grey">#B5C1BB</color>
+    <color name="light_grey">#EBECF7</color>
     <color name="error">#FB0303</color>
 </resources>

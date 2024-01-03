@@ -62,7 +62,13 @@
             android:exported="true" />
         <activity
             android:name=".User_login"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Register"
             android:exported="true" />
@@ -89,13 +95,17 @@
             android:exported="true" />
         <activity
             android:name=".UserProfileMain"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
+        <activity
+            android:name=".UploadCV"
+            android:exported="false" />
+        <activity
+            android:name=".VolunteerPostUser"
+            android:exported="false" />
+        <activity
+            android:name=".VolunteerList"
+            android:exported="false" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

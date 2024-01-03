@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadCV">
+
+    <RelativeLayout
+        android:id="@+id/RLUploadCVHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/green">
+
+        <ImageButton
+            android:id="@+id/BtnBackUploadCV"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/green"
+            app:srcCompat="@drawable/chevron_left" />
+
+        <TextView
+            android:id="@+id/TVUploadCVHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="UPLOAD YOUR CV"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLUploadCVContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/RLUploadCVHeader">
+
+        <TextView
+            android:id="@+id/TVUploadCVTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPLOAD YOUR CV"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_marginTop="180dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BtnUploadCV"
+            android:layout_width="327dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TVUploadCVTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/upload_cv_button"
+            android:drawableTop="@drawable/click_to_upload_icon"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingHorizontal="80dp"
+            android:paddingVertical="20dp"
+            android:scaleType="fitCenter"
+            android:text="CLICK TO UPLOAD"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BtnSubmitCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="180dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@color/purple"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingHorizontal="80dp"
+            android:text="SUBMIT"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

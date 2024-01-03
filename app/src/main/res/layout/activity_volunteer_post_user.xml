@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerPostUser"
+    android:id="@+id/RLVolPostAbove"
+    android:background="@color/green">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/BtnVolPostBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        app:icon="@drawable/chevron_left"
+        app:iconSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/TVActivityTitle"
+        android:layout_below="@+id/BtnVolPostBack">
+
+        <TextView
+            android:id="@+id/TVVolPostTitle"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BtnVolPostBack"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TVVolPostDesc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVActivityTitle"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/lorem_ipsum"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/TVVolPostPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVVolPostDesc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="100 points"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RLVolPostDetails"
+        android:background="@drawable/white_background"
+        android:layout_below="@+id/TVVolPostPoints"
+        android:layout_marginTop="20dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BtnVolApply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@color/purple"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingHorizontal="80dp"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BtnVolApply"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/RLVolPostDate">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_calendar"
+                android:tintMode="multiply"
+                android:id="@+id/IVVolPostCalendar" />
+
+            <TextView
+                android:id="@+id/TVVolPostDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/IVVolPostCalendar"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingHorizontal="30dp"
+                android:text="Date"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RLVolPostDate"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/RLVolPostTime">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_time"
+                android:tintMode="multiply"
+                android:id="@+id/IVVolPostTime" />
+
+            <TextView
+                android:id="@+id/TVVolPostTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/IVVolPostTime"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingHorizontal="30dp"
+                android:text="Time"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RLVolPostTime"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/RLVolPostLocation">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_mapmarker"
+                android:tintMode="multiply"
+                android:id="@+id/IVVolPostLocation" />
+
+            <TextView
+                android:id="@+id/TVVolPostLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/IVVolPostLocation"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingLeft="30dp"
+                android:text="Location"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/RLVolPostLocation"
+            android:id="@+id/RLVolPostAddress" >
+
+            <TextView
+                android:id="@+id/TVVolPostAddress"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="105dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Jalan PJU 1A/20, Ara Damansara, 47301 Subang, Selangor" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/RLVolPostAddress"
+            android:layout_marginTop="15dp"
+            android:id="@+id/SVVolPostBottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/RLVolPostBottom"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/TVAgeGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Age Group"
+                    android:textColor="@color/purple"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/TVAgeGroupValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="xxx years old" />
+
+                <TextView
+                    android:id="@+id/TVRequirementsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Requirements"
+                    android:textColor="@color/purple"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/TVRequirementsValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="sed turpis tincidunt id aliquet risus feugiat in" />
+
+                <TextView
+                    android:id="@+id/TVContactTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Contact Number"
+                    android:textColor="@color/purple"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/TVContactValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="012-3456789" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
