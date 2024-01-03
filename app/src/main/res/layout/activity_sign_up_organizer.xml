@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpOrganizer">
+
+    <RelativeLayout
+        android:id="@+id/orgSignUpHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/dark_green">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BTOrgSignUpBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/transparent"
+            app:icon="@drawable/baseline_arrow_back_ios_24"
+            app:iconSize="30dp" />
+
+        <TextView
+            android:id="@+id/TVEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="CREATE NEW ACCOUNT"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/orgSignUpHeader"
+        android:id="@+id/RLEdit">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Organizer Sign Up"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/OrganizerSignUpTitle"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeWidth="0dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/ic_user"
+            android:background="@drawable/edit_text_border"
+            android:layout_below="@+id/OrganizerSignUpTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="text"
+                android:hint="          Username"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bioContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            app:boxStrokeWidth="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_bio"
+            android:layout_below="@+id/usernameContainer"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bioEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="text"
+                android:hint="          Bio"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/genderContainer"
+            android:layout_width="match_parent"
+            app:boxStrokeWidth="0dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_gender"
+            android:layout_below="@+id/bioContainer"
+            android:background="@drawable/edit_text_border"
+            android:hint="          Gender">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:id="@+id/genderMenu"
+                android:background="@drawable/edit_text_border"/>
+
+            <!--            Java code refer to this link: https://m2.material.io/components/menus/android#exposed-dropdown-menus-->
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:id="@+id/dateContainer"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/genderContainer"
+            app:startIconDrawable="@drawable/ic_dob"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="          Date of Birth"
+                android:inputType="date"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:id="@+id/EditTextDOB" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_phone"
+            android:layout_below="@+id/dateContainer"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="phone"
+                android:hint="          Contact Number"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_email"
+            android:layout_below="@+id/phoneContainer"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="textEmailAddress"
+                android:hint="          Email"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_address"
+            android:layout_below="@+id/emailContainer"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:hint="          Address"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_password"
+            android:layout_below="@+id/addressContainer"
+            app:passwordToggleEnabled="true"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:hint="          Password"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordContainer"
+            android:background="@drawable/round_button"
+            android:text="Sign Up"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:id="@+id/OrgSignUpBT"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

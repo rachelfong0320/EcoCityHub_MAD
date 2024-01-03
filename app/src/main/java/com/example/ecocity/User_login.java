@@ -34,6 +34,7 @@ public class User_login extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private Button loginButton;
     private TextView createAcc, forgot_password;
+    AppCompatButton organizer;
 
 
     @Override
@@ -47,7 +48,16 @@ public class User_login extends AppCompatActivity {
         togglePasswordButton = findViewById(R.id.togglePasswordButton);
         loginButton= findViewById(R.id.log_in_button);
         fAuth = FirebaseAuth.getInstance();
-        createAcc=findViewById(R.id.createAcc);
+        createAcc = findViewById(R.id.createAcc);
+        organizer = findViewById(R.id.organizer);
+
+        organizer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_login.this, LogInOrganizer.class);
+                startActivity(intent);
+            }
+        });
 
         createAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,18 +124,6 @@ public class User_login extends AppCompatActivity {
             public void onClick(View view) {
                 // Start the NewPageActivity when the button is clicked
                 //Intent intent = new Intent(User_login.this, NewPageActivity.class);
-                //startActivity(intent);
-            }
-        });
-
-
-        // Set click listener for the organizer button
-        AppCompatButton organizer = findViewById(R.id.organizer);
-        organizer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Start the OrganizerLoginActivity when the button is clicked
-                //Intent intent = new Intent(User_login.this, Organizer_login.class);
                 //startActivity(intent);
             }
         });

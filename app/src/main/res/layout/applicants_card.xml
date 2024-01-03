@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:layout_marginHorizontal="30dp"
+    app:cardBackgroundColor="@color/light_purple"
+    android:layout_marginTop="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:id="@+id/TVUsername1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="90dp"
+            android:paddingBottom="15dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:drawableStart="@drawable/ic_cv"
+                android:paddingHorizontal="15dp"
+                android:textSize="12dp"
+                android:drawableTint="@color/white"
+                android:text="User's CV"
+                android:textColor="@color/white"
+                android:id="@+id/BTViewCV" />
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/spinner_background">
+
+                <Spinner
+                    android:id="@+id/statusSpinner"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:popupBackground="@color/purple"
+                    android:spinnerMode="dropdown"
+                    style="@style/SpinnerTheme"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

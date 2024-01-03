@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInOrganizer">
+
+    <ImageView
+        android:id="@+id/login_ImageTitle"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ecocity_hub_removebg_preview"/>
+
+    <TextView
+        android:id="@+id/login_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_ImageTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="ECOCITY HUB"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:shadowColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/login_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="BRIDGING COMMUNITIES"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/login_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_text2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="FOR POSITIVE CHANGE PLATFORM"
+        android:textSize="15dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/login_text3"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_border" >
+
+        <TextView
+            android:id="@+id/log_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="LOG IN"
+            android:textStyle="bold"
+            android:textSize="25dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/user_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/log_in"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:width="150dp"
+            android:background="@drawable/unclicked_button_border"
+            android:text="User"
+            android:textColor="@color/purple"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/log_in"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="40dp"
+            android:layout_toRightOf="@+id/user_button"
+            android:width="150dp"
+            android:background="@drawable/clicked_button_border"
+            android:text="Organizer"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:id="@+id/organizer_button"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameEmailContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_marginHorizontal="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/organizer_button"
+            android:layout_marginTop="50dp"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETUsernameEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:hint="Username or Email Address"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_below="@+id/usernameEmailContainer"
+            android:layout_marginHorizontal="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:passwordToggleEnabled="true"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/edit_text_border">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:hint="Password"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:background="@drawable/clicked_button_border"
+            android:textColor="@color/white"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="60dp"
+            android:textSize="18dp"
+            android:layout_below="@id/passwordContainer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/logInButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="@color/purple"
+            android:textStyle="bold"
+            android:layout_below="@+id/logInButton"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/forgot_password"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account ?"
+            android:layout_below="@+id/forgot_password"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dontHaveAcc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dontHaveAcc"
+            android:text="Create An Account"
+            android:textColor="@color/purple"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:id="@+id/createAccount" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

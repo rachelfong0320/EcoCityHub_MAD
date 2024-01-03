@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ecocity</string>
+    <string-array name="status_array">
+        <item>Pending</item>
+        <item>Accepted</item>
+        <item>Rejected</item>
+    </string-array>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta lorem mollis aliquam ut.</string>
+    <string name="requirements">Skills, qualifications, \nphysical requirements, dress code, etc.</string>
 </resources>
