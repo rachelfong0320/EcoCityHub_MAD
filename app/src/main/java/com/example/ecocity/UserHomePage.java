@@ -38,7 +38,7 @@ public class UserHomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserHomePage.this,User_login.class));
-                startActivity(intent);
+                finish();
             }
         });
 
