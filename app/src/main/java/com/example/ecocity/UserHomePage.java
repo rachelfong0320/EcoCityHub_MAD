@@ -57,5 +57,16 @@ public class UserHomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        MCVolunteer=findViewById(R.id.MCVolunteer);
+        MCVolunteer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserHomePage.this, VolunteerList.class);
+                intent.putExtra("username",username);
+                startActivity(intent);
+            }
+        });
+
     }
 }

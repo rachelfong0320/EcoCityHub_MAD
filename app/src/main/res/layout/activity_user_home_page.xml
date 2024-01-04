@@ -72,7 +72,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical">
 
 
@@ -109,7 +109,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:text="Profile"
-                        android:textSize="20dp" />
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -142,7 +142,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:text="Volunteer"
-                        android:textSize="20dp" />
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -151,7 +151,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="278dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="50dp"
@@ -181,10 +181,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:text="Resource Exchange"
                         android:textAlignment="center"
-                        android:textSize="20dp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -195,7 +195,8 @@
                 android:layout_width="120dp"
                 android:layout_height="140dp"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp">
+                app:cardCornerRadius="20dp"
+                android:layout_marginLeft="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,7 +216,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:text="Reward"
-                        android:textSize="20dp" />
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
