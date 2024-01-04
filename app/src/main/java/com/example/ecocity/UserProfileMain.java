@@ -61,14 +61,15 @@ public class UserProfileMain extends AppCompatActivity {
         mFirebaseStorage = FirebaseStorage.getInstance();
         mStorageReference = mFirebaseStorage.getReference();
 
+        Intent intent=getIntent();
+        String username =intent.getStringExtra("username");
+        String gender = intent.getStringExtra("gender");
+        String contNum = intent.getStringExtra("contNum");
+        String email = intent.getStringExtra("email");
+        String address = intent.getStringExtra("address");
+        String password =intent.getStringExtra("password");
+        String date = intent.getStringExtra("date");
 
-        RatingLayout=findViewById(R.id.RatingLayout);
-        RatingLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserProfileMain.this, Rating.class));
-            }
-        });
 
         // setting profile picture
         imageViewButton.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +113,7 @@ public class UserProfileMain extends AppCompatActivity {
         PointLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // For accumulated point
+                //TODO: Connect Accumulated Point
             }
         });
 
@@ -141,6 +142,12 @@ public class UserProfileMain extends AppCompatActivity {
                 String username = getIntent().getStringExtra("username");
                 Intent intent = new Intent(UserProfileMain.this, AccPrivacy.class);
                 intent.putExtra("username", username);
+                intent.putExtra("gender", gender);
+                intent.putExtra("contNum", contNum);
+                intent.putExtra("email", email);
+                intent.putExtra("address", address);
+                intent.putExtra("password", password);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -178,8 +185,8 @@ public class UserProfileMain extends AppCompatActivity {
 
     private void uploadImageToFirebase(Uri imageUri) {
         if (imageUri != null) {
-            final String uid = getIntent().getStringExtra("uid");
-            StorageReference fileReference = mStorageReference.child("USER_profile_images").child(uid + ".jpg");
+            final String username = getIntent().getStringExtra("username");
+            StorageReference fileReference = mStorageReference.child("USER_profile_images").child(username + ".jpg");
 
             fileReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -188,7 +195,7 @@ public class UserProfileMain extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(username);
                                     databaseReference.child("profileImageUrl").setValue(uri.toString());
                                     Toast.makeText(UserProfileMain.this, "Upload successful", Toast.LENGTH_LONG).show();
                                     Glide.with(UserProfileMain.this).load(uri).into(imageView);

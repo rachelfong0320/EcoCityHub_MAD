@@ -33,6 +33,12 @@ public class AccPrivacy extends AppCompatActivity {
 
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
+        String gender = intent.getStringExtra("gender");
+        String contNum = intent.getStringExtra("contNum");
+        String email = intent.getStringExtra("email");
+        String address = intent.getStringExtra("address");
+        String password =intent.getStringExtra("password");
+        String date = intent.getStringExtra("date");
 
         userReference= FirebaseDatabase.getInstance().getReference("Users").child(username);
 
@@ -53,6 +59,13 @@ public class AccPrivacy extends AppCompatActivity {
 
                 Toast.makeText(AccPrivacy.this, "Privacy setting updated!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AccPrivacy.this, UserProfileMain.class);
+                intent.putExtra("username",username);
+                intent.putExtra("gender", gender);
+                intent.putExtra("contNum", contNum);
+                intent.putExtra("email", email);
+                intent.putExtra("address", address);
+                intent.putExtra("password", password);
+                intent.putExtra("date", date);
                 startActivity(intent);
 
             }
