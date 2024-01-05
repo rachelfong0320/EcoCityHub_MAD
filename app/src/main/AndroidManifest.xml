@@ -76,6 +76,21 @@
             android:name=".Rating"
             android:exported="true" />
         <activity
+            android:name=".leaderboardMainPage"
+            android:exported="true" />
+        <activity
+            android:name=".Leaderboard"
+            android:exported="true" />
+        <activity
+            android:name=".Guideline1"
+            android:exported="true" />
+        <activity
+            android:name=".RewardsMainPage"
+            android:exported="true" />
+        <activity
+            android:name=".RewardsProfile"
+            android:exported="true" />
+        <activity
             android:name=".ReportProb"
             android:exported="true" />
         <activity
