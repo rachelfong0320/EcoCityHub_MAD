@@ -31,7 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class UserProfileMain extends AppCompatActivity {
-    TextView TitleUsername, UserPoint;
+    TextView TitleUsername;
     ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PointLayout, PrivacyLayout,FeedbackLayout, RatingLayout;
     ImageView imageView,imageViewButton, buttonBack;
     Button buttonLogOut;
@@ -49,7 +49,6 @@ public class UserProfileMain extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TitleUsername = findViewById(R.id.UserName);
-        UserPoint= findViewById(R.id.textView3);
         showUserData();
 
         //profile picture
@@ -113,7 +112,15 @@ public class UserProfileMain extends AppCompatActivity {
         PointLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Connect Accumulated Point
+                Intent intent = new Intent(UserProfileMain.this, leaderboardMainPage.class);
+                intent.putExtra("username",username);
+                intent.putExtra("gender", gender);
+                intent.putExtra("contNum", contNum);
+                intent.putExtra("email", email);
+                intent.putExtra("address", address);
+                intent.putExtra("password", password);
+                intent.putExtra("date", date);
+                startActivity(intent);
             }
         });
 
@@ -286,5 +293,6 @@ public class UserProfileMain extends AppCompatActivity {
 
             }
         });
+
     }
 }
