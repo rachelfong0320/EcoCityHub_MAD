@@ -94,8 +94,7 @@ public class Feedback extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     FeedbackHelperClass helperClass = new FeedbackHelperClass(feedback);
                     reference.child(category).child(FeedbackKey).setValue(helperClass);
-                    Intent intent = new Intent(Feedback.this, UserProfileMain.class);
-                    startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(Feedback.this, "Please leave your feedback here!", Toast.LENGTH_SHORT).show();
                 }

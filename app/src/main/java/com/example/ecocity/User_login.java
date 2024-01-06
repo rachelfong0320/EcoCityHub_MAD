@@ -98,7 +98,7 @@ public class User_login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) { // check by Authentication
-                            Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), UserHomePage.class);
                             intent.putExtra("username",usernameOrEmail);
                             startActivity(intent);

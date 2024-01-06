@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +36,7 @@ public class Register extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
     ProgressBar progressBar;
-    ImageView buttonBack;
+    ImageView buttonBack, ImageView31,ImageView35;
 
 
     @Override
@@ -52,6 +54,8 @@ public class Register extends AppCompatActivity {
         editTextPass2 = findViewById(R.id.editTextPass2);
         button4 = findViewById(R.id.button4);
         buttonBack = findViewById(R.id.imageView28);
+        ImageView31=findViewById(R.id.imageView31);
+        ImageView35=findViewById(R.id.imageView35);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
@@ -168,5 +172,35 @@ public class Register extends AppCompatActivity {
                 year, month, day);
 
         datePickerDialog.show();
+    }
+
+    public void toggleRegisterPasswordVisibility(View view) {
+        // Toggle password visibility
+        if (editTextPass.getTransformationMethod() instanceof PasswordTransformationMethod) {
+            editTextPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            ImageView31.setImageResource(R.drawable.baseline_visibility_24); // Change to visible icon
+        } else {
+            editTextPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            ImageView31.setImageResource(R.drawable.baseline_visibility_off_24); // Change to hidden icon
+        }
+
+
+        // Move the cursor to the end of the text
+        editTextPass.setSelection(editTextPass.getText().length());
+    }
+
+    public void toggleConfirmPassword(View view) {
+        // Toggle password visibility
+        if (editTextPass2.getTransformationMethod() instanceof PasswordTransformationMethod) {
+            editTextPass2.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            ImageView35.setImageResource(R.drawable.baseline_visibility_24); // Change to visible icon
+        } else {
+            editTextPass2.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            ImageView35.setImageResource(R.drawable.baseline_visibility_off_24); // Change to hidden icon
+        }
+
+
+        // Move the cursor to the end of the text
+        editTextPass2.setSelection(editTextPass2.getText().length());
     }
 }

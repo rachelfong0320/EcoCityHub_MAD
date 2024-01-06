@@ -68,8 +68,7 @@ public class Rating extends AppCompatActivity {
                 String message = "We appreciated you rating! It means a lot to us.";
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(Rating.this, UserProfileMain.class);
-                startActivity(intent);
+                finish();
 
 
             }

@@ -138,6 +138,13 @@ public class UserProfileMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserProfileMain.this, ReportProb.class);
+                intent.putExtra("username",username);
+                intent.putExtra("gender", gender);
+                intent.putExtra("contNum", contNum);
+                intent.putExtra("email", email);
+                intent.putExtra("address", address);
+                intent.putExtra("password", password);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
