@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+
 
     <application
         android:allowBackup="true"
@@ -18,6 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecocity"
         tools:targetApi="31">
+
         <activity
             android:name=".UserHomePage"
             android:exported="false" />
@@ -62,7 +67,7 @@
             android:exported="true" />
         <activity
             android:name=".User_login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -110,7 +115,7 @@
             android:exported="true" />
         <activity
             android:name=".UserProfileMain"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".UploadCV"
             android:exported="false" />
@@ -120,7 +125,6 @@
         <activity
             android:name=".VolunteerList"
             android:exported="false" />
-
 
         <provider
             android:name="androidx.core.content.FileProvider"

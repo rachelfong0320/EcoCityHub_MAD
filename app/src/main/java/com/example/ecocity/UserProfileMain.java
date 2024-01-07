@@ -1,7 +1,14 @@
 package com.example.ecocity;
 
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +20,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -33,7 +44,7 @@ import com.google.firebase.storage.UploadTask;
 public class UserProfileMain extends AppCompatActivity {
     TextView TitleUsername;
     ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PointLayout, PrivacyLayout,FeedbackLayout, RatingLayout;
-    ImageView imageView,imageViewButton, buttonBack;
+    ImageView imageView,imageViewButton, buttonBack, notifybtn;
     Button buttonLogOut;
     FirebaseStorage mFirebaseStorage;
     StorageReference mStorageReference;
@@ -55,6 +66,7 @@ public class UserProfileMain extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageViewButton = findViewById(R.id.imageView4);
         buttonBack=findViewById(R.id.imageView28);
+        notifybtn=findViewById(R.id.imageView32);
 
 
         mFirebaseStorage = FirebaseStorage.getInstance();
@@ -80,6 +92,20 @@ public class UserProfileMain extends AppCompatActivity {
                         .maxResultSize(1080,1080)
                         .start();
 
+            }
+        });
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
+            if(ContextCompat.checkSelfPermission(UserProfileMain.this, Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(UserProfileMain.this, new String[]{Manifest.permission.POST_NOTIFICATIONS},101);
+            }
+        }
+
+        // SETTINGS ON NOTIFICATIONS
+        notifybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeNotification();
             }
         });
 
@@ -300,6 +326,30 @@ public class UserProfileMain extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void makeNotification(){
+        String channelID = "CHANNEL_ID_NOTIFICATION";
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),channelID);
+        builder.setSmallIcon(R.drawable.baseline_notifications_active_24)
+                .setContentTitle("EcoCity Hub Notification")
+                .setContentText("Thank you for using our app. We've offer 20 points to you as our appreciation!")
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            NotificationChannel notificationChannel=notificationManager.getNotificationChannel(channelID);
+            if(notificationChannel==null){
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel=new NotificationChannel(channelID,"Some description",importance);
+                notificationChannel.setLightColor(Color.GREEN);
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+        notificationManager.notify(0,builder.build());
 
     }
 }
