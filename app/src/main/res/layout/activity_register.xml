@@ -24,6 +24,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPass"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPass"
+        app:layout_constraintTop_toTopOf="@+id/editTextPass"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/baseline_visibility_24" />
+
+    <ImageView
+        android:id="@+id/imageView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="7dp"
+        android:onClick="toggleRegisterPasswordVisibility"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPass"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPass"
+        app:layout_constraintTop_toTopOf="@+id/editTextPass"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/baseline_visibility_24" />
+
     <EditText
         android:id="@+id/editTextPass2"
         android:layout_width="333dp"
@@ -41,6 +68,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPass" />
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="toggleConfirmPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPass2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPass2"
+        app:layout_constraintTop_toTopOf="@+id/editTextPass2"
+        app:srcCompat="@drawable/baseline_visibility_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -275,7 +315,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="#DD7C7DCC"
         android:text="Register"
         android:textSize="16sp"
@@ -325,6 +365,8 @@
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

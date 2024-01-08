@@ -55,8 +55,7 @@ public class ReportProb extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     ReportHelperClass helperClass = new ReportHelperClass(des, problem);
                     reference.child(reportKey).setValue(helperClass);
-                    Intent intent = new Intent(ReportProb.this, UserProfileMain.class);
-                    startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(ReportProb.this, "Please leave your feedback here!", Toast.LENGTH_SHORT).show();
                 }

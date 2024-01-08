@@ -58,15 +58,13 @@ public class forgetPassword extends AppCompatActivity {
                 if(!TextUtils.isEmpty(strEmail)){
                     ResetPassword();
                 }else{
-                    editText.setError("Email field cannot be empty");
+                    editText.setError("Username field cannot be empty");
                 }
             }
         });
     }
 
     public void ResetPassword() {
-        button4.setVisibility(View.INVISIBLE);
-
         Query checkUserDatabase = reference.orderByChild("username").equalTo(strEmail);
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
