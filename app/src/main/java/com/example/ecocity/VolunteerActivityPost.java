@@ -109,6 +109,9 @@ public class VolunteerActivityPost extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(VolunteerActivityPost.this, ApplicantsList.class);
                 intent.putExtra("activityKey", activityKey);
+                intent.putExtra("activityName", TVActivityName.getText().toString());
+                intent.putExtra("ageGroup", TVAgeGroup.getText().toString());
+                intent.putExtra("requirements", TVRequirements.getText().toString());
                 startActivity(intent);
                 finish();
             }

@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +26,7 @@ public class ApplicantsList extends AppCompatActivity {
     RecyclerView applicant_recycler_list;
     ApplicantsListAdapter applicantsAdapter;
     MaterialButton BTDashboardBack;
+    TextView TVActivityName, TVAgeGroup, TVRequirements;
 
 
     @Override
@@ -32,8 +35,18 @@ public class ApplicantsList extends AppCompatActivity {
         setContentView(R.layout.activity_applicants_list);
         applicant_recycler_list = findViewById(R.id.applicant_recycler_list);
         BTDashboardBack = findViewById(R.id.BTDashboardBack);
+        TVActivityName = findViewById(R.id.TVActivityName);
+        TVAgeGroup = findViewById(R.id.TVAgeGroup);
+        TVRequirements = findViewById(R.id.TVRequirements);
 
         String activityKey = getIntent().getStringExtra("activityKey");
+
+        String activityName = getIntent().getStringExtra("activityName");
+        String ageGroup = getIntent().getStringExtra("ageGroup");
+        String requirements = getIntent().getStringExtra("requirements");
+        TVActivityName.setText(activityName);
+        TVAgeGroup.setText(ageGroup);
+        TVRequirements.setText(requirements);
 
         BTDashboardBack.setOnClickListener(new View.OnClickListener() {
             @Override

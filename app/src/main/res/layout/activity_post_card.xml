@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="340dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/light_purple"
@@ -15,7 +15,7 @@
         android:padding="20dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="266dp"
             android:layout_height="wrap_content"
             android:text="Animal Shelter Volunteer"
             android:textStyle="bold"
@@ -43,17 +43,25 @@
                 android:paddingVertical="10dp"
                 android:id="@+id/activity_date"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_button_white"
-                android:text="See More"
-                android:textColor="@color/purple"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="70dp"
-                android:id="@+id/DetailButtonCV" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_button_white"
+                    android:text="See More"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/purple"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="70dp"
+                    android:id="@+id/DetailButtonCV" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </LinearLayout>
