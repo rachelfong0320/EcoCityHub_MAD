@@ -23,8 +23,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -118,7 +121,7 @@ public class UploadCV extends AppCompatActivity {
 
 
     // Upload PDF
-    private void uploadPDFFileFirebase(Uri data){
+    private void uploadPDFFileFirebase(Uri data) {
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("File is loading...");
@@ -132,8 +135,8 @@ public class UploadCV extends AppCompatActivity {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while (!uriTask.isComplete());
-                        Uri uri= uriTask.getResult();
+                        while (!uriTask.isComplete()) ;
+                        Uri uri = uriTask.getResult();
 
                         String pdfName = fileName;
                         String status = "Pending";
@@ -143,6 +146,7 @@ public class UploadCV extends AppCompatActivity {
                         databaseReference.child(username).child(databaseReference.push().getKey()).setValue(UploadCVHelper);
                         Toast.makeText(UploadCV.this, "File Uploaded", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
+                        addPointsToUser(username, activityKey);
 
 //                        Intent intent = new Intent(UploadCV.this, VolunteerPostUser.class);
 //                        intent.putExtra("ACTIVITY_KEY", activityKey);
@@ -181,4 +185,55 @@ public class UploadCV extends AppCompatActivity {
                 });
     }
 
+        private void addPointsToUser(String username, String activityKey) {
+            DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("Users").child(username);
+            DatabaseReference activityReference = FirebaseDatabase.getInstance().getReference("Activities").child(organizerName).child(activityKey);
+
+            // Retrieve points to add from the activity in the database
+            activityReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        String pointsToAddString = dataSnapshot.child("points").getValue(String.class);
+                        int pointsToAdd = Integer.parseInt(pointsToAddString);
+
+                        // Update user points in the database
+                        userReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot userSnapshot) {
+                                if (userSnapshot.exists()) {
+                                    int currentPoints = userSnapshot.child("point").getValue(Integer.class);
+                                    int newPoints = currentPoints + pointsToAdd;
+
+                                    // Update user points in the database
+                                    userReference.child("point").setValue(newPoints).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                // Points added successfully
+                                                Toast.makeText(UploadCV.this, "Points added to user", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                // Handle error
+                                                Toast.makeText(UploadCV.this, "Failed to add points", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                // Handle error
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle error
+                }
+            });
+        }
 }

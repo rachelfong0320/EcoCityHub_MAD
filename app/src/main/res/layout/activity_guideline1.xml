@@ -82,16 +82,6 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/title1_point"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingStart="50dp"
-            android:text="15 points/ hour"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -120,7 +110,7 @@
                 android:layout_height="118dp"
                 android:layout_marginStart="10dp"
                 android:paddingTop="10dp"
-                android:text="Earn 15 points for every hour actively participating in volunteering events such as joining the awareness campaigns, animal shutter volunteer and etc. "
+                android:text="Earn points based on types of volunteering events participated in such as joining the awareness campaigns, animal shutter volunteer and etc. "
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
