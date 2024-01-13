@@ -60,8 +60,7 @@ public class RewardsMainPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Start the NewPageActivity when the button is clicked
-                Intent intent = new Intent(RewardsMainPage.this,UserHomePage.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

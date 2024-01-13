@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    android:shape="rectangle">
+    <solid android:color="@color/light_grey"/> <!-- Set the color of the rectangle -->
+    <corners android:radius="200dp"/> <!-- Set the radius for curved corners -->
+    <size android:width="1700dp" android:height="300dp"/> <!-- Set the width and height of the rectangle -->
+</shape>

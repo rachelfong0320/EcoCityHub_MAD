@@ -1,0 +1,81 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardview="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp"
+    app:contentPaddingBottom="15dp"
+    android:layout_marginLeft="100dp"
+    cardview:cardCornerRadius="50dp"
+    android:layout_marginRight="5dp"
+    android:layout_gravity="end"
+    android:layout_marginTop="20dp"
+    cardview:strokeColor="@android:color/darker_gray"
+    cardview:strokeWidth="20"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <!-- Add a guideline to define the end position -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/message_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="-10dp"
+        android:background="@color/light_purple"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingLeft="7dp"
+        android:paddingTop="5dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="7dp"
+        android:text="MESSAGE HERE"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_picker_actions" />
+
+    <TextView
+        android:id="@+id/date_picker_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:paddingTop="9dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="June 10"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/material_timepicker_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="-10dp"
+        android:padding="7dp"
+        android:text="10:00"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/message_id"
+    app:layout_constraintVertical_bias="0.687" />
+</androidx.constraintlayout.widget.ConstraintLayout>

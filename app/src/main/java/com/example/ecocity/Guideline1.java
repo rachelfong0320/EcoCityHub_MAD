@@ -19,8 +19,7 @@ public class Guideline1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Start the NewPageActivity when the button is clicked
-                Intent intent = new Intent(Guideline1.this, leaderboardMainPage.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

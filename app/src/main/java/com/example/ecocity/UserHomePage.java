@@ -68,6 +68,22 @@ public class UserHomePage extends AppCompatActivity {
             }
         });
 
+        MCResource=findViewById(R.id.MCResource);
+        MCResource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserHomePage.this, ResourceMainPage.class);
+                intent.putExtra("username",username);
+                intent.putExtra("gender", gender);
+                intent.putExtra("contNum", contNum);
+                intent.putExtra("email", email);
+                intent.putExtra("address", address);
+                intent.putExtra("password", password);
+                intent.putExtra("date", date);
+                startActivity(intent);
+            }
+        });
+
         MCReward=findViewById(R.id.MCReward);
         MCReward.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -9,8 +9,6 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,7 +20,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecocity"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ResourceMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".ItemDescription"
+            android:exported="false" />
+        <activity
+            android:name=".Chat"
+            android:exported="false" />
+        <activity
+            android:name=".Change"
+            android:exported="false" />
         <activity
             android:name=".UserHomePage"
             android:exported="false" />

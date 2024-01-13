@@ -57,15 +57,6 @@ public class leaderboardMainPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Start the NewPageActivity when the button is clicked
-                Intent intent = new Intent();
-                intent.putExtra("username",username);
-                intent.putExtra("gender", gender);
-                intent.putExtra("contNum", contNum);
-                intent.putExtra("email", email);
-                intent.putExtra("address", address);
-                intent.putExtra("password", password);
-                intent.putExtra("date", date);
-                startActivity(intent);
                 finish();
             }
         });
