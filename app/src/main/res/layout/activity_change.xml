@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Your ScrollView containing the main content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".Change">
+
+            <ImageView
+                android:id="@+id/IVRectangle"
+                android:layout_width="412dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="-14dp"
+                android:layout_marginBottom="823dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/title_background" />
+
+            <TextView
+                android:id="@+id/TVProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginBottom="86dp"
+                android:fontFamily="@font/montserrat"
+                android:text="CHANGE"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintEnd_toEndOf="@+id/IVRectangle"
+                app:layout_constraintStart_toEndOf="@+id/IVArrowBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/IVArrowBack"
+                android:layout_width="23dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/img_1" />
+
+            <ImageView
+                android:id="@+id/IVDotted"
+                android:layout_width="373dp"
+                android:layout_height="245dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/IVRectangle"
+                app:srcCompat="@drawable/dotted" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="365dp"
+                android:layout_height="280dp"
+                android:layout_margin="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle">
+
+                <TextView
+                    android:id="@+id/TVUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="25dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Upload or Copy/Paste Your Photo"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/IVImage"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp"
+                    android:background="#00FFFFFF"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/baseline_image_24" />
+
+                <TextView
+                    android:id="@+id/TVAccept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="JPEG AND PNG ONLY"
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/TVLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="307dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Location"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IVDotted" />
+
+            <ImageView
+                android:id="@+id/IVSquareLocation"
+                android:layout_width="366dp"
+                android:layout_height="300dp"
+                android:background="@color/light_grey"
+                app:layout_constraintBottom_toTopOf="@id/linearLayout2"
+                app:layout_constraintEnd_toEndOf="@id/linearLayout2"
+                app:layout_constraintStart_toStartOf="@id/linearLayout2"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="370dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVLocation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Location2"
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Location"
+                        android:textSize="19sp" />
+
+                    <ImageView
+                        android:id="@+id/IVAsterisk"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/asterisk" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:hint="@string/select">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/auto_complete_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Select Condition" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/TVNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Notes on Location (Optional)"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="1000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/notes_on_location_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="Details about the location to exchange, if any"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/TVCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="307dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Condition"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+            <ImageView
+                android:id="@+id/IVSquareCondition"
+                android:layout_width="366dp"
+                android:layout_height="300dp"
+                android:background="@color/light_grey"
+                app:layout_constraintBottom_toTopOf="@id/linearLayout3"
+                app:layout_constraintEnd_toEndOf="@id/linearLayout3"
+                app:layout_constraintStart_toStartOf="@id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout3" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="370dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVCondition">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Condition"
+                        android:layout_width="99dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Condition"
+                        android:textSize="19sp" />
+
+                    <ImageView
+                        android:id="@+id/IVAsterisk2"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="243dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/asterisk" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="355dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="3dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="16dp"
+                        android:hint="@string/select_brand_type">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/auto_complete_txt_condition"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:contentDescription="Select Brand Type" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/TVNotes2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Notes on Condition (Optional)"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="1000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/notes_on_condition_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="Details about the condition, or defects if any"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/TVItemDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="307dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Item details"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout3" />
+
+            <ImageView
+                android:id="@+id/IVSquareItem"
+                android:layout_width="366dp"
+                android:layout_height="300dp"
+                android:background="@color/light_grey"
+                app:layout_constraintBottom_toTopOf="@id/linearLayout4"
+                app:layout_constraintEnd_toEndOf="@id/linearLayout4"
+                app:layout_constraintStart_toStartOf="@id/linearLayout4"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout4" />
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="370dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVItemDetails">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Title"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Title"
+                        android:textSize="19sp" />
+
+                    <ImageView
+                        android:id="@+id/IVAsterisk3"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="295dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/asterisk" />
+
+                </LinearLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/TIETResourceTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="Resource Title"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/TVNotes4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Description (Optional)"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="1000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/description_on_resource_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="Details about the item, if any"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/BSubmit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat"
+                android:text="SUBMIT"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</RelativeLayout>

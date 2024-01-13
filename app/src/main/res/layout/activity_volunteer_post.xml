@@ -179,12 +179,12 @@
                         android:src="@drawable/ic_location"
                         app:tint="@color/purple"
                         android:tintMode="multiply"
-                        android:id="@+id/IVLocation" />
+                        android:id="@+id/IVImageProfile" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/IVLocation"
+                        android:layout_toRightOf="@+id/IVImageProfile"
                         android:text="PAWS Animal Rescue Center"
                         android:textSize="20dp"
                         android:paddingLeft="30dp"

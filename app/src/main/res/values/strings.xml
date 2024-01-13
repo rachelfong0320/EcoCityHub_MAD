@@ -7,4 +7,7 @@
     </string-array>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porta lorem mollis aliquam ut.</string>
     <string name="requirements">Skills, qualifications, \nphysical requirements, dress code, etc.</string>
+    <string name="app_name1">DropdownMenu</string>
+    <string name="select">Select Location</string>
+    <string name="select_brand_type">Select Condition</string>
 </resources>
