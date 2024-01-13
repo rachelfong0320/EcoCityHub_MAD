@@ -282,7 +282,7 @@ public class UserProfileMain extends AppCompatActivity {
                             Glide.with(UserProfileMain.this).load(Uri.parse(profileImageUrl)).into(imageView);
                         } else {
                             // Account is private, set a default drawable or image
-                            imageView.setImageResource(R.drawable.user_icon);
+                            imageView.setImageResource(R.drawable.baseline_person_24);
                         }
                     }
                 }

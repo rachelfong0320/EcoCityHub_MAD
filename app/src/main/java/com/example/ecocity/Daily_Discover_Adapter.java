@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -73,7 +74,7 @@ public class Daily_Discover_Adapter extends RecyclerView.Adapter<Daily_Discover_
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private Daily_Discover_Adapter adapter;
-        private ImageView profileImageView;
+        private ShapeableImageView profileImageView;
         private TextView usernameTextView;
         private TextView locationTextView;
         private TextView brandTypeTextView;
@@ -344,13 +345,19 @@ public class Daily_Discover_Adapter extends RecyclerView.Adapter<Daily_Discover_
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     String imageUrl = snapshot.child("profileImageUrl").getValue(String.class);
+                    boolean isPrivate = snapshot.child("privacy").getValue(Boolean.class);
 
-                    // Load the image using Glide or any other image loading library
-                    Glide.with(context)
-                            .load(imageUrl)
-                            .placeholder(R.drawable.ic_launcher_foreground)
-                            .error(R.drawable.baseline_person_24)
-                            .into(imageView);
+                    if (!isPrivate && imageUrl != null && !imageUrl.isEmpty()) {
+                        // Load the image using Glide or any other image loading library
+                        Glide.with(context)
+                                .load(imageUrl)
+                                .placeholder(R.drawable.ic_launcher_foreground)
+                                .error(R.drawable.baseline_person_24)
+                                .into(imageView);
+                    }else{
+                        // Account is private, set a default drawable or image
+                        imageView.setImageResource(R.drawable.baseline_person_24);
+                    }
                 }
             }
 

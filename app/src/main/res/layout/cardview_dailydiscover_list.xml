@@ -19,13 +19,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile_picture_id"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/background_blue" />
+                app:srcCompat="@drawable/baseline_person_24"
+                android:background="#867C7DD6"
+                app:shapeAppearanceOverlay="@style/circular"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
