@@ -112,7 +112,15 @@ public class UserProfileMain extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(UserProfileMain.this,UserHomePage.class);
+                intent.putExtra("username",username);
+                intent.putExtra("gender", gender);
+                intent.putExtra("contNum", contNum);
+                intent.putExtra("email", email);
+                intent.putExtra("address", address);
+                intent.putExtra("password", password);
+                intent.putExtra("date", date);
+                startActivity(intent);
             }
         });
 
